@@ -1,0 +1,1 @@
+watertap[notebooks] @ git+https://github.com/watertap-org/watertap@main

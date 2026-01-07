@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+idaes get-extensions --verbose --distro ubuntu2204
+python -c "import idaes; from pyomo.environ import SolverFactory as S; print(S('ipopt').executable())"
+python -m ipykernel install --user --name watertap-academy
+jupyter kernelspec list
+jupyter kernelspec remove -f python3
+jupyter kernelspec list 
+echo 'c.KernelSpecManager.allowed_kernelspecs = ["watertap-academy"]' >> ~/.jupyter/jupyter_lab_config.py
