@@ -158,7 +158,7 @@ jobs:
 
           echo '::group::Cloning repositories'
           git clone https://github.com/watertap-org/watertap_academy_fall_2025
-          git clone --branch 1.6.0 https://github.com/watertap-org/watertap.git
+          git clone --branch 1.7.0 https://github.com/watertap-org/watertap.git
           echo '::endgroup::'
 
           echo '::group::Installing Watertap'
