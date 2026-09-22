@@ -51,81 +51,8 @@ jobs:
         run: |
           black --check --verbose .
 
-#   notebooks:
-#     name: Test notebooks (py${{ matrix.python-version }}/${{ matrix.os }})
-#     runs-on: ${{ matrix.os-version }}
-#     needs: [code-formatting]
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         python-version:
-#           - '3.11'
-#         os:
-#           - linux
-#           - win64
-#         include:
-#           - os: linux
-#             os-version: ubuntu-22.04
-#           - os: win64
-#             os-version: windows-2022
-#     steps:
-#       - uses: actions/checkout@v4
-#       - name: Set up Python ${{ matrix.python-version }}
-#         uses: conda-incubator/setup-miniconda@v3
-#         with:
-#           activate-environment: watertap-academy
-#           python-version: ${{ matrix.python-version }}
-#       - name: Install dependencies
-#         run: |
-#           set -e  # Exit immediately if a command exits with a non-zero status
-            
-#           echo '::group::Output of "conda install" commands'
-#           conda install --quiet --yes pip setuptools wheel pandoc
-#           echo '::endgroup::'
-
-#           echo '::group::Cloning repositories'
-#           git clone https://github.com/watertap-org/watertap_academy_fall_2025
-#           git clone --branch 1.4.0 https://github.com/watertap-org/watertap.git
-#           echo '::endgroup::'
-
-#           echo '::group::Installing Watertap'
-#           cd watertap
-#           pip install --editable ".[notebooks]"
-#           pip install pytest nbmake
-#           echo '::endgroup::'
-
-#           echo '::group::Installing cyipopt'
-#           conda install -c conda-forge cyipopt
-#           echo '::endgroup::'
-
-#           echo '::group::Display installed packages'
-#           conda list
-#           pip list
-#           pip show idaes-pse
-#           pip show watertap
-#           echo '::endgroup::'
-
-#           echo '::group::Output of "idaes get-extensions" command'
-#           idaes get-extensions --extra petsc --verbose
-#           echo '::endgroup::'
-
-#           echo '::group::Re-enter academy-repo'
-#           cd ..
-#           cd watertap_academy_fall_2025
-#           echo '::endgroup::'
-
-#       - name: Install Jupyter kernel
-#         run: |
-#           jupyter kernelspec list
-#           python -m ipykernel install --user --name "${{ env.WATERTAP_KERNEL_NAME }}"
-#           jupyter kernelspec list
-
-#       - name: Run pytest with nbmake
-#         run: |
-#           pytest --nbmake --nbmake-kernel="${{ env.WATERTAP_KERNEL_NAME }}" **/*.ipynb
-
-  notebooks-reaktoro:
-    name: Test reaktoro notebooks (py${{ matrix.python-version }}/${{ matrix.os }})
+  notebooks:
+    name: Test notebooks (py${{ matrix.python-version }}/${{ matrix.os }})
     runs-on: ${{ matrix.os-version }}
     needs: [code-formatting]
     strategy:
