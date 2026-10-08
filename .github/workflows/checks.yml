@@ -85,32 +85,15 @@ jobs:
 
           echo '::group::Cloning repositories'
           git clone https://github.com/watertap-org/watertap_academy_fall_2025
-          git clone --branch 1.7.0 https://github.com/watertap-org/watertap.git
           echo '::endgroup::'
 
-          echo '::group::Installing Watertap'
-          cd watertap
-          pip install --editable ".[notebooks]"
-          pip install pytest nbmake
+          echo '::group::Installing WaterTAP Academy 2025 Environment'
+          cd watertap_academy_fall_2025
+          conda create -f environment.yml && conda activate watertap-academy-2025
           echo '::endgroup::'
 
           echo '::group::Output of "idaes get-extensions" command'
-          idaes get-extensions --extra petsc --verbose
-          echo '::endgroup::'
-
-          echo '::group::Re-enter academy-repo'
-          cd ..
-          cd watertap_academy_fall_2025
-          echo '::endgroup::'
-          
-          echo '::group:: set numpy version to 1.26.4'
-          pip uninstall -y numpy
-          pip install numpy==1.26.4
-          echo '::endgroup::'
-
-          echo '::group:: installing reaktoro dependencies'
-          conda install -c conda-forge reaktoro=2.12.3 cyipopt=1.4.1
-          pip install git+https://github.com/watertap-org/reaktoro-pse.git
+          idaes get-extensions --verbose
           echo '::endgroup::'
 
           echo '::group::Display installed packages'
