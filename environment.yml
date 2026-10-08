@@ -1,0 +1,19 @@
+name: watertap-academy-2025-test
+
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools
+  - wheel
+  - pandoc
+  - numpy=1.26.4
+  - reaktoro=2.12.3
+  - cyipopt=1.4.1
+  - pytest
+  - nbmake
+  - ipykernel
+  - pip:
+    - git+https://github.com/watertap-org/watertap.git@1.7.0
+    - git+https://github.com/watertap-org/reaktoro-pse.git
