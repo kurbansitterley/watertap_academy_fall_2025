@@ -84,7 +84,7 @@ jobs:
           echo '::endgroup::'
 
           echo '::group::Cloning repositories'
-          git clone https://github.com/watertap-org/watertap_academy_fall_2025
+          git clone -b add-environment-yml-test https://github.com/kurbansitterley/watertap_academy_fall_2025.git
           echo '::endgroup::'
 
           echo '::group::Installing WaterTAP Academy 2025 Environment'
