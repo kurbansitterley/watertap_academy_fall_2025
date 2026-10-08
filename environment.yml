@@ -1,4 +1,4 @@
-name: watertap-academy-2025-test
+name: watertap-academy-2025
 
 channels:
   - conda-forge
