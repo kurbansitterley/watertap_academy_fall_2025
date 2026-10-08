@@ -89,6 +89,7 @@ jobs:
 
           echo '::group::Installing WaterTAP Academy 2025 Environment'
           cd watertap_academy_fall_2025
+          ls -la
           conda create -f environment.yml && conda activate watertap-academy-2025
           echo '::endgroup::'
 
