@@ -92,10 +92,6 @@ jobs:
           conda create -f environment.yml && conda activate watertap-academy-2025
           echo '::endgroup::'
 
-          echo '::group::Output of "idaes get-extensions" command'
-          idaes get-extensions --verbose
-          echo '::endgroup::'
-
           echo '::group::Display installed packages'
           conda list
           pip list
