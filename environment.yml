@@ -8,12 +8,11 @@ dependencies:
   - setuptools
   - wheel
   - pandoc
-  - numpy=1.26.4
   - reaktoro=2.12.3
   - cyipopt=1.4.1
   - pytest
   - nbmake
   - ipykernel
+  - watertap=1.7.0
   - pip:
-    - git+https://github.com/watertap-org/watertap.git@1.7.0
     - git+https://github.com/watertap-org/reaktoro-pse.git
