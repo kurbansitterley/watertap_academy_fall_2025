@@ -29,7 +29,7 @@ env:
   # --pyargs watertap is needed to be able to define CLI options in watertap/conftest.py
   PYTEST_ADDOPTS: "--color=yes"
   PIP_PROGRESS_BAR: "off"
-  WATERTAP_KERNEL_NAME: watertap-academy
+  WATERTAP_KERNEL_NAME: watertap-academy-2025
 
 jobs:
   code-formatting:
@@ -89,9 +89,13 @@ jobs:
 
           echo '::group::Installing WaterTAP Academy 2025 Environment'
           cd watertap_academy_fall_2025
-          ls -la
           conda create -f environment.yml && conda activate watertap-academy-2025
           echo '::endgroup::'
+
+          echo '::group::Output of "idaes get-extensions" command'
+          idaes get-extensions --verbose
+          echo '::endgroup::'
+
 
           echo '::group::Display installed packages'
           conda list
