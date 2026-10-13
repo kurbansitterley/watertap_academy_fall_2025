@@ -16,4 +16,4 @@ dependencies:
   - jupyter
   - watertap=1.7.0
   - pip:
-    - git+https://github.com/watertap-org/reaktoro-pse.git
+    - "reaktoro-pse @ git+https://github.com/watertap-org/reaktoro-pse.git@v0.4.1"
